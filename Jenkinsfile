@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "your-dockerhub-username/eatseasy"
+        DOCKER_IMAGE = "dhaval543/eateasybackend"
         AWS_REGION = "us-east-1"
         EKS_CLUSTER = "EatsEasyCluster"
     }
@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/your-repo/eatseasy.git'
+                git 'https://github.com/dhaval543/EatEasyBackend'
             }
         }
 
@@ -23,7 +23,7 @@ pipeline {
         stage('Docker Build & Push') {
             steps {
                 sh 'docker build -t $DOCKER_IMAGE:latest .'
-                sh 'docker login -u your-dockerhub-username -p your-dockerhub-password'
+                sh 'docker login -u dhaval543 -p Gandhinagar@123'
                 sh 'docker push $DOCKER_IMAGE:latest'
             }
         }
